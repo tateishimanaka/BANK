@@ -11,15 +11,17 @@ Rails.application.routes.draw do
     passwords: 'store/passwords',
     registrations: 'store/registrations'
   }
-  
+
   scope module: :store do
     root to: "homes#top"
+    get "/about" => "homes#about"
     resources :individual_projects, only: [:new, :create, :show, :index, :edit, :update]
     resources :corporation_projects, only: [:new, :create, :show, :index, :edit, :update]
   end
-  
+
   namespace :admin do
     root to: "homes#top"
+    get "/about" => "homes#about"
     resources :collaterals, only: [:index, :create, :edit, :update]
     resources :use_of_funds, only: [:index, :create, :edit, :update]
     resources :fund_types, only: [:index, :create, :edit, :update]
