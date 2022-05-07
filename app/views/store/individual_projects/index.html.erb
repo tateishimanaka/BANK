@@ -1,0 +1,14 @@
+<div class="container pt-5 mt-5">
+  <h2><%= @store.name %>個人顧客一覧</h2>
+  <div class="row">
+    <%= link_to "新規案件作成", new_individual_project_path %>
+  </div>
+
+  <div class="row">
+    <% @individual_projects.each do |individual_project| %>
+      <%= link_to individual_project_path(individual_project) do %>
+        <%= individual_project.id %>.<%= individual_project.last_name %><%= individual_project.first_name %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

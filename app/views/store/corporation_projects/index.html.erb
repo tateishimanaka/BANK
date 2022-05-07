@@ -1,0 +1,14 @@
+<div class="container pt-5 mt-5">
+  <h2><%= @store.name %>法人顧客一覧</h2>
+  <div class="row">
+    <%= link_to "新規案件作成", new_corporation_project_path %>
+  </div>
+
+  <div class="row">
+    <% @corporation_projects.each do |corporation_project| %>
+      <%= link_to corporation_project_path(corporation_project) do %>
+        <%= corporation_project.id %>.<%= corporation_project.name %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
