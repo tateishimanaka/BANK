@@ -1,20 +1,63 @@
-<div class="container pt-5 mt-5">
+<div class="container pt-5">
   <h2>資金使途</h2>
   <div class="row">
     <%= link_to "トップページに戻る", admin_root_path %>
   </div>
-  <div class="row">
+</div>
+<div class="container mt-3">
+  <div class="row ml-4">
+    <h4>ジャンル一覧・追加</h4>
+  </div>
+  <div class="row mt-5 ml-3">
     <%= form_with model: @use_of_fund, url: admin_use_of_funds_path, local:true do |f| %>
-      <%= f.text_field :use_of_fund %>
-      <%= f.submit "新規登録" %>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <div class="mr-5">
+              <strong>資金使途</strong>
+            </div>
+          </td>
+          <td>
+            <div class="mr-5">
+              <%= f.text_field :use_of_fund %>
+            </div>
+          </td>
+          <td>
+            <%= f.submit "新規登録", class: "btn btn-success" %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
     <% end %>
   </div>
 
-  <div class="row">
-    <% @use_of_funds.each do |use_of_fund| %>
-      <%= link_to edit_admin_use_of_fund_path(use_of_fund) do %>
-        <%= use_of_fund.id %>.<%= use_of_fund.use_of_fund %>
-      <% end %>
-    <% end %>
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              <div class="mr-5">
+                資金使途
+              </div>
+            </th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @use_of_funds.each do |use_of_fund| %>
+            <tr>
+              <td>
+                <div class="mr-5">
+                  <%= link_to edit_admin_use_of_fund_path(use_of_fund) do %>
+                    <%= use_of_fund.id %>.<%= use_of_fund.use_of_fund %>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
