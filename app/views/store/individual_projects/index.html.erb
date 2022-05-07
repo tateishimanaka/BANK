@@ -1,14 +1,47 @@
-<div class="container pt-5 mt-5">
-  <h2><%= @store.name %>個人顧客一覧</h2>
-  <div class="row">
-    <%= link_to "新規案件作成", new_individual_project_path %>
+<div class="container pt-5">
+  <div class="row ml-4">
+     <h4><%= @store.name %>個人顧客一覧</h4>
   </div>
-
-  <div class="row">
-    <% @individual_projects.each do |individual_project| %>
-      <%= link_to individual_project_path(individual_project) do %>
-        <%= individual_project.id %>.<%= individual_project.last_name %><%= individual_project.first_name %>
-      <% end %>
-    <% end %>
+  <div class="row ml-4">
+    <%= link_to "新規案件作成", new_individual_project_path, class: "btn btn-outline-secondary" %>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">案件ID</th>
+            <th scope="col">顧客名</th>
+            <th scope="col">融資額</th>
+            <th scope="col">実行日</th>
+            <th scope="col">期日</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @individual_projects.each do |individual_project| %>
+        <tr>
+          <td>
+            <%= link_to individual_project_path(individual_project) do %>
+              <%= individual_project.id %>
+            <% end %>
+          </td>
+          <td>
+            <%= individual_project.last_name %><%= individual_project.first_name %>
+          </td>
+          <td>
+            <%= individual_project.loan %>
+          </td>
+          <td>
+            <%= individual_project.date %>
+          </td>
+          <td>
+            <%= individual_project.end_day %>
+          </td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

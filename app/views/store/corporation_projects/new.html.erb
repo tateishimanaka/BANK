@@ -1,24 +1,23 @@
-<div class="container pt-5 mt-5">
-  <h2>新規案件作成</h2>
-  <div class="row">
+<div class="container pt-5">
+  <div class="row ml-4">
+    <h4>法人顧客  新規案件作成</h4>
+  </div>
+  <div class="row ml-4">
     <%= link_to "法人顧客案件一覧に戻る", corporation_projects_path %>
   </div>
   <div class="row">
-    <%= form_with model: @corporation_project, url: corporation_projects_path, local:true do |f| %>
+    <div class="mx-auto">
+      <%= form_with model: @corporation_project, url: corporation_projects_path, local:true do |f| %>
       <form>
         <div class="form-growp mt-3">
           <label for="name">会社名</label><span class="text-danger">(必須)</span>
           <%= f.text_field :name %>
-        </div>
-        <div class="form-growp mt-3">
           <label for="name_kana">フリガナ</label><span class="text-danger">(必須)</span>
           <%= f.text_field :name_kana %>
         </div>
         <div class="form-growp mt-3">
           <label for="president">代表取締役</label><span class="text-danger">(必須)</span>
           <%= f.text_field :president %>
-        </div>
-        <div class="form-growp mt-3">
           <label for="president_kana">代表取締役フリガナ</label><span class="text-danger">(必須)</span>
           <%= f.text_field :president_kana %>
         </div>
@@ -70,8 +69,8 @@
           <label for="date">実行日(****/**/**)</label>
           <%= f.text_field :date %>
         </div>
-        <div class="form-growp mt-3"><span class="text-danger">(必須)</span>
-          <label for="appoint_date">実行日予定日(****/**/**)</label>
+        <div class="form-growp mt-3">
+          <label for="appoint_date">実行日予定日(****/**/**)<span class="text-danger">(必須)</span></label>
           <%= f.text_field :appoint_date %>
         </div>
         <div class="form-growp mt-3">
@@ -87,6 +86,7 @@
           <%= f.submit "登録する", class: "btn btn-outline-secondary" %>
         </div>
       </form>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -1,19 +1,20 @@
-<div class="container pt-5 mt-5">
-  <h1>admin</h1>
-  <% if admin_signed_in? %>
-    
-  <% else %>
-    <%= link_to "ログイン", new_admin_session_path %>
-  <% end %>
-
-  <div class="row">
-     <%= link_to "担保種類", admin_collaterals_path %>
+<div class="container pt-5">
+  <div class="row ml-4">
+    <h4>管理者画面</h4>
   </div>
-  <div class="row">
-    <%= link_to "資金使途", admin_use_of_funds_path %>
+  <div class="row mt-4">
+    <div class="mx-auto">
+      <%= link_to "担保種類", admin_collaterals_path, class: "btn btn-outline-secondary" %>
+    </div>
   </div>
-  <div class="row">
-    <%= link_to "資金種類", admin_fund_types_path %>
+  <div class="row mt-5">
+    <div class="mx-auto">
+      <%= link_to "資金使途", admin_use_of_funds_path, class: "btn btn-outline-secondary" %>
+    </div>
   </div>
-
+  <div class="row mt-5">
+    <div class="mx-auto">
+      <%= link_to "資金種類", admin_fund_types_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
 </div>
