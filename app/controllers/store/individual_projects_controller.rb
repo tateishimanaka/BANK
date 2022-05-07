@@ -21,7 +21,7 @@ class Store::IndividualProjectsController < ApplicationController
 
   def index
     @store = current_store
-    @individual_projects = IndividualProject.all
+    @individual_projects = current_store.individual_projects
   end
 
   def edit

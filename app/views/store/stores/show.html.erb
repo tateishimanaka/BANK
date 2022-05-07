@@ -1,0 +1,18 @@
+<div class="container pt-5">
+  <div class="row ml-4">
+    <h4><%= @store.name %></h4>
+  </div>
+
+
+  <div class="row mt-4">
+    <div class="mx-auto">
+      <%= link_to "個人顧客案件一覧", individual_projects_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="mx-auto">
+      <%= link_to "法人顧客案件一覧", corporation_projects_path, class: "btn btn-outline-secondary" %>
+    </div>
+
+  </div>
+</div>

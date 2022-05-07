@@ -21,7 +21,7 @@ class Store::CorporationProjectsController < ApplicationController
 
   def index
     @store = current_store
-    @corporation_projects = CorporationProject.all
+    @corporation_projects = current_store.corporation_projects
   end
 
   def edit
@@ -30,7 +30,7 @@ class Store::CorporationProjectsController < ApplicationController
 
   def update
     @corporation_project = CorporationProject.find(params[:id])
-    if @corporation_project.update
+    if @corporation_project.update(corporation_project_params)
       redirect_to corporation_project_path(@corporation_project)
     else
       render :edit

@@ -1,35 +1,48 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "store/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "本店" %>
+<div class="container pt-5 mt-5">
+  <div class="row ml-4">
+    <h4>店舗　新規登録</h4>
   </div>
-
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="row ml-4">
+    <%= link_to "トップ画面に戻る", root_path %>
   </div>
+  <div class="row">
+    <div class="mx-auto">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "store/shared/error_messages", resource: resource %>
+        <div class="field">
+          <label for="name">支店名</label><br />
+            <%= f.text_field :name, autofocus: true, placeholder: "(例)新宿支店" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+        <div class="field mt-3">
+          <label for="email">メールアドレス</label><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field mt-3">
+          <label for="password">パスワード</label>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> 文字以上)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+
+        <div class="field mt-3">
+          <label for="name">パスワード確認用</label><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+
+        <div class="form-growp mt-4">
+          <%= f.submit "登録する", class: "btn btn-outline-secondary" %>
+        </div>
+      <% end %>
+
+      <%= link_to "登録済みの場合",new_store_session_path %>
+
+      <!--<%= render "store/shared/links" %>-->
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
 
-<%= render "store/shared/links" %>

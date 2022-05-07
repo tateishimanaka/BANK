@@ -10,6 +10,28 @@
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg">
+      <div class="container mt-3">
+        <div class="navbar-brand">
+          <h4>BANK-SYSTEM<span>~案件作成管理システム~</span></h4>
+        </div>
+        <ul class="navbar-nav mt-lg-0">
+          <% if store_signed_in? %>
+            <div class="mt-2">
+              <%= link_to "ログアウト", destroy_store_session_path, method: :delete %>
+            </div>
+          <% elsif admin_signed_in? %>
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+          <% end %>
+        </ul>
+      </div>
+      </nav>
+    </header>
+
     <%= yield %>
+    <footer>
+      <div class="container mb-5 pb-5"></div>
+    </footer>
   </body>
 </html>

@@ -1,68 +1,96 @@
-<div class="container pt-5 mt-5">
-  <div class="row">
-    <%= link_to "一覧へ", corporation_projects_path %>
+<div class="container pt-5">
+  <div class="row ml-4">
+    <h4><%= @corporation_project.id %>.<%= @corporation_project.name %></h4>
   </div>
-  <%= @individual_project.id %>.<%= @individual_project.last_name %><%= @individual_project.first_name %>
-  <div class="row">
-    <%= @individual_project.last_name_kana %><%= @individual_project.first_name_kana %>
+  <div class="row ml-4">
+    <%= link_to "戻る", corporation_projects_path %>
   </div>
-  <div class="row">
-    <h5>融資額</h5>
-    <%= @individual_project.loan %>円
+  <div class="row　ml-4">
+    <%= link_to "案件内容を変更する",  edit_corporation_project_path(@corporation_project), class: "btn btn-outline-secondary" %>
   </div>
-  <div class="row">
-    <h5>期間</h5>
-    <%= @individual_project.span %>ヶ月
-  </div>
-  <div class="row">
-    <h5>毎月返済額</h5>
-    <%= @individual_project.month_payment %>円
-  </div>
-  <div calss="row">
-    <h5>最終月返済額</h5>
-    <%= @individual_project.last_mont_payment %>円
-  </div>
-  <div class="row">
-    <h5>金利</h5>
-    <%= @individual_project.interest_rate %>％
-  </div>
-  <div class="row">
-    <h5>連帯保証人</h5>
-    <%= @individual_project.joint_guarantor %>
-  </div>
-  <div class="row">
-    <h5>自己資金</h5>
-    <%= @individual_project.own_resource %>円
-  </div>
-  <div class="row">
-    <h5>期日</h5>
-    <%= @individual_project.end_day %>
-  </div>
-  <div class="row">
-    <h5>担保</h5>
-    <%= @individual_project.collateral.collateral %>
-  </div>
-  <div class="row">
-    <h5>資金使途</h5>
-    <%= @individual_project.use_of_fund.use_of_fund %>
-  </div>
-  <div class="row">
-    <h5>資金種類</h5>
-    <%= @individual_project.fund_type.fund_type %>
-  </div>
-  <div class="row">
-    <h5>実行日</h5>
-    <%= @individual_project.date %>
-  </div>
-  <div class="row">
-    <h5>実行予定日</h5>
-    <%= @individual_project.appoint_date %>
-  </div>
-  <div class="row">
-    <h5>完済登録</h5>
-    <%= @individual_project.is_active %>
-  </div>
-  <div class="row">
-    <%= link_to "変更", edit_individual_project_path %>
+
+  <div class="row mt-4">
+    <div class="col-md-10">
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <th scope="row">顧客名</th>
+          <td>
+            <%= @corporation_project.name_kana %><br>
+            <%= @corporation_project.name %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">代表取締役</th>
+          <td>
+            <%= @corporation_project.president_kana %><br>
+            <%= @corporation_project.president %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">融資額</th>
+          <td><%= @corporation_project.loan %>円</td>
+        </tr>
+        <tr>
+          <th scope="row">期間</th>
+          <td><%= @corporation_project.span %>ヶ月</td>
+        </tr>
+        <tr>
+          <th scope="row">毎月返済額</th>
+          <td><%= @corporation_project.month_payment %>円</td>
+        </tr>
+        <tr>
+          <th scope="row">最終月返済額</th>
+          <td><%= @corporation_project.last_mont_payment %>円</td>
+        </tr>
+        <tr>
+          <th scope="row">金利</th>
+          <td><%= @corporation_project.interest_rate %>％</td>
+        </tr>
+        <tr>
+          <th scope="row">連帯保証人</th>
+          <td><%= @corporation_project.joint_guarantor %></td>
+        </tr>
+        <tr>
+          <th scope="row">自己資金</th>
+          <td><%= @corporation_project.own_resource %>円</td>
+        </tr>
+        <tr>
+          <th scope="row">期日</th>
+          <td><%= @corporation_project.end_day %></td>
+        </tr>
+        <tr>
+          <th scope="row">担保</th>
+          <td><%= @corporation_project.collateral.collateral %></td>
+        </tr>
+        <tr>
+          <th scope="row">資金使途</th>
+          <td><%= @corporation_project.use_of_fund.use_of_fund %></td>
+        </tr>
+        <tr>
+          <th scope="row">資金種類</th>
+          <td> <%= @corporation_project.fund_type.fund_type %></td>
+        </tr>
+        <tr>
+          <th scope="row">実行日</th>
+          <td><%= @corporation_project.date %></td>
+        </tr>
+        <tr>
+          <th scope="row">実行予定日</th>
+          <td><%= @corporation_project.appoint_date %></td>
+        </tr>
+         <tr>
+          <th scope="row">完済登録</th>
+          <td>
+            <% if @corporation_project.is_active == true %>
+              有効
+            <% else %>
+              完済
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
   </div>
 </div>

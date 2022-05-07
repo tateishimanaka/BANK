@@ -1,14 +1,47 @@
-<div class="container pt-5 mt-5">
-  <h2><%= @store.name %>法人顧客一覧</h2>
-  <div class="row">
-    <%= link_to "新規案件作成", new_corporation_project_path %>
+<div class="container pt-5">
+  <div class="row ml-4">
+     <h4><%= @store.name %>法人顧客一覧</h4>
   </div>
-
-  <div class="row">
-    <% @corporation_projects.each do |corporation_project| %>
-      <%= link_to corporation_project_path(corporation_project) do %>
-        <%= corporation_project.id %>.<%= corporation_project.name %>
-      <% end %>
-    <% end %>
+  <div class="row ml-4">
+    <%= link_to "新規案件作成", new_corporation_project_path, class: "btn btn-outline-secondary" %>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">案件ID</th>
+            <th scope="col">顧客名</th>
+            <th scope="col">融資額</th>
+            <th scope="col">実行日</th>
+            <th scope="col">期日</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @corporation_projects.each do |corporation_project| %>
+        <tr>
+          <td>
+            <%= link_to corporation_project_path(corporation_project) do %>
+              <%= corporation_project.id %>
+            <% end %>
+          </td>
+          <td>
+            <%= corporation_project.name %>
+          </td>
+          <td>
+            <%= corporation_project.loan %>
+          </td>
+          <td>
+            <%= corporation_project.date %>
+          </td>
+          <td>
+            <%= corporation_project.end_day %>
+          </td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

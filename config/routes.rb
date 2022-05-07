@@ -14,9 +14,9 @@ Rails.application.routes.draw do
 
   scope module: :store do
     root to: "homes#top"
-    get "/about" => "homes#about"
     resources :individual_projects, only: [:new, :create, :show, :index, :edit, :update]
     resources :corporation_projects, only: [:new, :create, :show, :index, :edit, :update]
+    resources :stores, only: [:show]
   end
 
   namespace :admin do
